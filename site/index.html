@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Applies the saved/system theme before first paint. Without this the page
+         renders light for a frame and then flips, which reads as a flicker. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Sanatan International — Centre for Human Flourishing</title>
+
+    <!-- Primary SEO -->
+    <meta name="description" content="Sanatan International is a registered public-benefit organization preserving ancient Vedic wisdom through Gurukul education, Ayurveda research, ethical technology, and sustainable living. Serving the Bay Area, San Francisco, Oakland, San Jose, and the global Indian diaspora." />
+    <meta name="keywords" content="Sanatan Dharma, Gurukul education, Ayurveda research, Vedic studies, Sanskrit learning, yoga philosophy, Indian culture, Hindu community, Bay Area, San Francisco, El Sobrante, California, spiritual education, human flourishing" />
+    <meta name="author" content="Sanatan International" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sanataninternational.org/" />
+
+    <!-- Geo / Local SEO -->
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="El Sobrante, California" />
+    <meta name="geo.position" content="37.9738;-122.3131" />
+    <meta name="ICBM" content="37.9738, -122.3131" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sanataninternational.org/" />
+    <meta property="og:title" content="Sanatan International — Centre for Human Flourishing" />
+    <meta property="og:description" content="Building a permanent 33-acre campus for Gurukul-based education, Ayurveda research, ethical technology, and sustainable indigenous production. Serving Bay Area families and the global Indian diaspora." />
+    <meta property="og:image" content="/Images/og-image_53f5bb7e.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sanatan International — Centre for Human Flourishing" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Sanatan International" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@SanatanIntl" />
+    <meta name="twitter:title" content="Sanatan International — Centre for Human Flourishing" />
+    <meta name="twitter:description" content="Ancient human sciences. Modern execution. Public benefit. Gurukul education, Ayurveda research & ethical technology for all of humanity." />
+    <meta name="twitter:image" content="/Images/og-image_53f5bb7e.jpg" />
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sanatan International",
+      "alternateName": "Sanatan International — Centre for Human Flourishing",
+      "@id": "https://sanataninternational.org/#organization",
+      "url": "https://sanataninternational.org",
+      "logo": "/Images/logo_01779464.png",
+      "description": "A registered public-benefit organization preserving ancient Vedic wisdom through Gurukul education, Ayurveda research, ethical technology, and sustainable living.",
+      "foundingDate": "2024",
+      "nonprofitStatus": "Nonprofit501c3",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "El Sobrante",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "areaServed": ["San Francisco Bay Area", "Oakland", "San Jose", "Fremont", "Santa Clara", "Global Indian Diaspora"],
+      "potentialAction": {
+        "@type": "DonateAction",
+        "target": "https://sanataninternational.org/donate",
+        "name": "Donate to Sanatan International"
+      },
+      "sameAs": [
+        "https://www.facebook.com/SanatanInternational",
+        "https://www.instagram.com/SanatanInternational",
+        "https://twitter.com/SanatanIntl",
+        "https://www.youtube.com/@SanatanInternational"
+      ],
+      "knowsAbout": ["Vedic Education", "Ayurveda", "Sanskrit", "Yoga Philosophy", "Gurukul System", "Sanatan Dharma"]
+    }
+    </script>
+
+    <!-- Structured Data: NGO / NonprofitOrganization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["NGO", "EducationalOrganization"],
+      "@id": "https://sanataninternational.org/#ngo",
+      "name": "Sanatan International",
+      "url": "https://sanataninternational.org",
+      "description": "A 501(c)(3) public-benefit organization building a 33-acre Gurukul campus in California to preserve Vedic wisdom for the Indian diaspora.",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "Pankaj Tyagi",
+        "jobTitle": "Founder & Chief Visionary"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "El Sobrante",
+        "addressRegion": "CA",
+        "postalCode": "94803",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general",
+        "email": "info@sanataninternational.org",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "makesOffer": [
+        {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Digital Gurukul — Sanskrit, Yoga, Ayurveda, Vedic Sciences"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ayurveda Research & Herb Studies"}}
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: EducationalOrganization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Sanatan International Digital Gurukul",
+      "url": "https://sanataninternational.org/gurukul",
+      "description": "A 4-level Gurukul curriculum covering spiritual, academic, physical, creative, and life skills education for all ages.",
+      "educationalCredentialAwarded": "Acharya Certification",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Gurukul Programs",
+        "itemListElement": [
+          {"@type": "Course", "name": "Sanskrit Sprouts", "description": "Language and scripture: 25 shlokas memorized with meaning", "offers": {"@type": "Offer", "price": "1499", "priceCurrency": "INR"}},
+          {"@type": "Course", "name": "Yoga & Anatomy", "description": "Body and breath: Surya namaskar mastery, 20 asanas, 3 pranayama", "offers": {"@type": "Offer", "price": "1499", "priceCurrency": "INR"}},
+          {"@type": "Course", "name": "Vedic Sciences", "description": "Math, astronomy, ecology with scriptural reference", "offers": {"@type": "Offer", "price": "1499", "priceCurrency": "INR"}}
+        ]
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-txwKpnRf.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-DkqmPtr3.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-dWhccO6c.css">
+  </head>
+
+  <body>
+    <!-- Skip to main content — accessibility -->
+    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;background:#C2410C;color:white;padding:8px 16px;border-radius:0 0 8px 0;font-family:Inter,sans-serif;font-size:0.85rem;font-weight:700" onfocus="this.style.left='0';this.style.width='auto';this.style.height='auto'" onblur="this.style.left='-9999px';this.style.width='1px';this.style.height='1px'">Skip to main content</a>
+    <div id="root"></div>
+    <!-- Umami analytics is injected by vite.config.ts when VITE_ANALYTICS_ENDPOINT
+         and VITE_ANALYTICS_WEBSITE_ID are set. -->
+  </body>
+
+</html>
