@@ -1,0 +1,215 @@
+[
+ {
+  "id": "vedic",
+  "label": "Core Vedic Corpus",
+  "color": "#F97316",
+  "books": [
+   {
+    "id": "1.01",
+    "title": "Rigveda",
+    "sanskrit": "ऋग्वेद",
+    "priority": "P0",
+    "notes": "10,552 hymns; oldest Veda",
+    "source": "Griffith 1896 (PD)"
+   },
+   {
+    "id": "1.02",
+    "title": "Samaveda",
+    "sanskrit": "सामवेद",
+    "priority": "P0",
+    "notes": "Musical liturgy",
+    "source": "Griffith 1893 (PD)"
+   },
+   {
+    "id": "1.03",
+    "title": "Yajurveda (Krishna)",
+    "sanskrit": "कृष्ण यजुर्वेद",
+    "priority": "P0",
+    "notes": "Sacrificial formulae",
+    "source": "Griffith (PD)"
+   },
+   {
+    "id": "1.04",
+    "title": "Atharvaveda",
+    "sanskrit": "अथर्ववेद",
+    "priority": "P0",
+    "notes": "Healing, protection, daily life",
+    "source": "Griffith 1895 (PD)"
+   },
+   {
+    "id": "1.05",
+    "title": "Yoga Sutras of Patanjali",
+    "sanskrit": "योग सूत्र",
+    "priority": "P0",
+    "notes": "196 sutras; complete yoga science",
+    "source": "Woods 1914 (PD)"
+   },
+   {
+    "id": "1.06",
+    "title": "Bhagavad Gita",
+    "sanskrit": "भगवद्गीता",
+    "priority": "P0",
+    "notes": "18 chapters; standalone module",
+    "source": "Arnold / Besant (PD)"
+   },
+   {
+    "id": "1.07",
+    "title": "Brahma Sutras",
+    "sanskrit": "ब्रह्म सूत्र",
+    "priority": "P1",
+    "notes": "Vedantic synthesis",
+    "source": "Thibaut 1890 (PD)"
+   },
+   {
+    "id": "1.08",
+    "title": "Arthashastra",
+    "sanskrit": "अर्थशास्त्र",
+    "priority": "P1",
+    "notes": "Governance and economics",
+    "source": "Shamasastry 1915 (PD)"
+   }
+  ]
+ },
+ {
+  "id": "upanishads",
+  "label": "Upanishads",
+  "color": "#7C3AED",
+  "books": [
+   {
+    "id": "2.01",
+    "title": "Isha Upanishad",
+    "sanskrit": "ईश उपनिषद्",
+    "priority": "P0",
+    "notes": "18 verses; unity of existence",
+    "source": "Müller SBE (PD)"
+   },
+   {
+    "id": "2.02",
+    "title": "Kena Upanishad",
+    "sanskrit": "केन उपनिषद्",
+    "priority": "P0",
+    "notes": "Nature of Brahman",
+    "source": "Müller SBE (PD)"
+   },
+   {
+    "id": "2.03",
+    "title": "Katha Upanishad",
+    "sanskrit": "कठ उपनिषद्",
+    "priority": "P0",
+    "notes": "Nachiketa and Yama; death and liberation",
+    "source": "Müller SBE (PD)"
+   },
+   {
+    "id": "2.04",
+    "title": "Mundaka Upanishad",
+    "sanskrit": "मुण्डक उपनिषद्",
+    "priority": "P0",
+    "notes": "Higher vs lower knowledge",
+    "source": "Müller SBE (PD)"
+   },
+   {
+    "id": "2.05",
+    "title": "Mandukya Upanishad",
+    "sanskrit": "माण्डूक्य उपनिषद्",
+    "priority": "P0",
+    "notes": "12 verses; states of consciousness",
+    "source": "Müller SBE (PD)"
+   },
+   {
+    "id": "2.06",
+    "title": "Chandogya Upanishad",
+    "sanskrit": "छान्दोग्य उपनिषद्",
+    "priority": "P0",
+    "notes": "Tat tvam asi; Samaveda",
+    "source": "Müller SBE (PD)"
+   },
+   {
+    "id": "2.07",
+    "title": "Brihadaranyaka Upanishad",
+    "sanskrit": "बृहदारण्यक उपनिषद्",
+    "priority": "P0",
+    "notes": "Largest; Yajnavalkya dialogues",
+    "source": "Müller SBE (PD)"
+   },
+   {
+    "id": "2.08",
+    "title": "Taittiriya Upanishad",
+    "sanskrit": "तैत्तिरीय उपनिषद्",
+    "priority": "P0",
+    "notes": "Panchakosha model",
+    "source": "Müller SBE (PD)"
+   }
+  ]
+ },
+ {
+  "id": "itihasa",
+  "label": "Itihasa & Purāṇa",
+  "color": "#16A34A",
+  "books": [
+   {
+    "id": "3.01",
+    "title": "Ramayana (Valmiki)",
+    "sanskrit": "रामायण",
+    "priority": "P0",
+    "notes": "24,000 verses; 7 kandas",
+    "source": "Griffith 1870–74 (PD)"
+   },
+   {
+    "id": "3.02",
+    "title": "Mahabharata (Vyasa)",
+    "sanskrit": "महाभारत",
+    "priority": "P0",
+    "notes": "100,000 verses; includes Gita",
+    "source": "Ganguli 1883–96 (PD)"
+   },
+   {
+    "id": "3.03",
+    "title": "Bhagavata Purana",
+    "sanskrit": "भागवत पुराण",
+    "priority": "P0",
+    "notes": "Krishna devotion; 12 cantos",
+    "source": "Sanyal 1929 (PD)"
+   },
+   {
+    "id": "3.04",
+    "title": "Vishnu Purana",
+    "sanskrit": "विष्णु पुराण",
+    "priority": "P0",
+    "notes": "Cosmology + Vishnu narratives",
+    "source": "Wilson 1840 (PD)"
+   },
+   {
+    "id": "3.05",
+    "title": "Shiva Purana",
+    "sanskrit": "शिव पुराण",
+    "priority": "P0",
+    "notes": "Shaiva — comprehensive",
+    "source": "Shastri 1949 (PD)"
+   },
+   {
+    "id": "3.06",
+    "title": "Devi Mahatmyam",
+    "sanskrit": "देवीमाहात्म्यम्",
+    "priority": "P0",
+    "notes": "700 verses to the Goddess",
+    "source": "Tagare/PD"
+   },
+   {
+    "id": "3.07",
+    "title": "Yoga Vasistha",
+    "sanskrit": "योगवासिष्ठ",
+    "priority": "P1",
+    "notes": "Philosophy in story; Vasistha-Rama",
+    "source": "Vihari-Lala Mitra (PD)"
+   },
+   {
+    "id": "3.08",
+    "title": "Garuda Purana",
+    "sanskrit": "गरुड पुराण",
+    "priority": "P1",
+    "notes": "Death, afterlife, karma",
+    "source": "Wood/Subramanyam (PD)"
+   }
+  ]
+ }
+]

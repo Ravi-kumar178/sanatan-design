@@ -1,0 +1,1059 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand palette exposed as Tailwind utilities — text-si-text, bg-si-surface,
+     border-si-border, etc. Prefer these over raw hex in new markup. */
+  --color-si-orange: var(--si-orange);
+  --color-si-orange-dark: var(--si-orange-dark);
+  --color-si-orange-light: var(--si-orange-light);
+  --color-si-orange-tint: var(--si-orange-tint);
+  --color-si-orange-deep: var(--si-orange-deep);
+  --color-si-gold: var(--si-gold);
+  --color-si-hero-dark: var(--si-hero-dark);
+  --color-si-hero-mid: var(--si-hero-mid);
+  --color-si-cream: var(--si-cream);
+  --color-si-warm: var(--si-warm);
+  --color-si-card: var(--si-card);
+  --color-si-surface: var(--si-surface);
+  --color-si-surface-alt: var(--si-surface-alt);
+  --color-si-surface-subtle: var(--si-surface-subtle);
+  --color-si-text: var(--si-text);
+  --color-si-text-black: var(--si-text-black);
+  --color-si-text-strong: var(--si-text-strong);
+  --color-si-text-mid: var(--si-text-mid);
+  --color-si-text-muted: var(--si-text-muted);
+  --color-si-text-light: var(--si-text-light);
+  --color-si-border: var(--si-border);
+  --color-si-border-strong: var(--si-border-strong);
+  --color-si-success: var(--si-success);
+  --color-si-danger: var(--si-danger);
+  --color-si-info: var(--si-info);
+  --color-si-orange-ink: var(--si-orange-ink);
+  --color-si-cta: var(--si-cta);
+  --color-si-on-accent: var(--si-on-accent);
+  --color-si-ink: var(--si-ink);
+  --color-si-ink-deep: var(--si-ink-deep);
+  --color-si-emerald: var(--si-emerald);
+  --color-si-violet: var(--si-violet);
+  --color-si-rose: var(--si-rose);
+  --color-si-amber: var(--si-amber);
+  --color-si-success-deep: var(--si-success-deep);
+  --color-si-orange-tint: var(--si-orange-tint);
+  --color-si-success-tint: var(--si-success-tint);
+  --color-si-info-tint: var(--si-info-tint);
+  --color-si-danger-tint: var(--si-danger-tint);
+}
+
+/* ─── Sanatan International Design System ───────────────────────────────────
+   Matching www.sanataninternational.org
+   Colors: Orange accent #F97316, dark hero #0F1923, white/cream body
+   Fonts: Playfair Display (serif headings), Inter (body)
+   Style: Clean minimal, white/cream sections, orange accent, rounded cards
+─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Brand ─────────────────────────────────────────────────────────────── */
+  --si-orange: #F97316;
+  --si-orange-dark: #EA6C0A;
+  --si-orange-light: #FED7AA;
+  --si-orange-tint: #FFF7ED;
+  --si-orange-deep: #C2410C;
+  /* Saffron that carries white text. #F97316 is only 2.80:1 against white, so
+     solid CTAs use this deeper saffron (5.18:1) while --si-orange stays the
+     brand colour for fills, icons and borders. */
+  --si-cta: #C2410C;
+  --si-cta-hover: #A34608;
+  /* Foreground for solid accent chips. Accents lighten in dark mode, so the text
+     on top of them has to invert rather than stay white. */
+  --si-on-accent: #FFFFFF;
+  --si-gold: #D4A017;
+  --si-hero-dark: #0F1923;
+  --si-hero-mid: #1A2535;
+
+  /* Dark chrome (navbar, footer, dark sections) — intentionally dark in BOTH
+     themes, which is why it is separate from the --si-text ramp. */
+  --si-ink: #1A1A1A;
+  --si-ink-deep: #111827;
+
+  /* X's mark is black on light, white on dark — the one social colour that flips. */
+  --si-social-x: #000000;
+
+  /* ── Surfaces ──────────────────────────────────────────────────────────── */
+  --si-cream: #FDF8F0;
+  --si-warm: #F5EFE0;
+  --si-card: #FFFFFF;
+  --si-surface: #F9F5F0;
+  --si-surface-alt: #F3F4F6;
+  --si-surface-subtle: #F9FAFB;
+
+  /* ── Text ──────────────────────────────────────────────────────────────── */
+  --si-text: #1A1A1A;
+  --si-text-black: #111827;
+  --si-text-strong: #374151;
+  --si-text-mid: #4B5563;
+  --si-text-muted: #646C7A;
+  --si-text-light: #68707D;
+
+  /* ── Borders ───────────────────────────────────────────────────────────── */
+  --si-border: #E5E7EB;
+  --si-border-strong: #D1D5DB;
+
+  /* ── Status ────────────────────────────────────────────────────────────── */
+  --si-success: #15803D;
+  --si-success-deep: #166534;
+  --si-success-light: #4ADE80;
+  --si-success-tint: #F0FDF4;
+  --si-emerald: #047857;
+  --si-danger: #C81E1E;
+  --si-danger-deep: #DC2626;
+  --si-danger-tint: #FEF2F2;
+  --si-rose: #BE123C;
+  --si-rose-tint: #FFF1F2;
+  --si-info: #2563EB;
+  --si-info-tint: #EFF6FF;
+  --si-violet: #7C3AED;
+  --si-violet-deep: #9333EA;
+  --si-violet-tint: #F5F3FF;
+  --si-fuchsia-tint: #FDF4FF;
+  --si-amber: #B45309;
+  --si-amber-deep: #92400E;
+  --si-amber-tint: #FFFBEB;
+
+  /* Tailwind tokens */
+  --radius: 0.75rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.13 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0.01 260);
+  --primary: oklch(0.65 0.22 38);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.005 80);
+  --secondary-foreground: oklch(0.25 0.01 260);
+  --muted: oklch(0.96 0.005 80);
+  --muted-foreground: oklch(0.52 0.01 260);
+  --accent: oklch(0.96 0.005 80);
+  --accent-foreground: oklch(0.13 0.01 260);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.91 0.005 260);
+  --input: oklch(0.91 0.005 260);
+  --ring: oklch(0.65 0.22 38);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.13 0.01 260);
+  --sidebar-primary: oklch(0.65 0.22 38);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0.005 80);
+  --sidebar-accent-foreground: oklch(0.13 0.01 260);
+  --sidebar-border: oklch(0.91 0.005 260);
+  --sidebar-ring: oklch(0.65 0.22 38);
+  --chart-1: oklch(0.65 0.22 38);
+  --chart-2: oklch(0.55 0.18 38);
+  --chart-3: oklch(0.45 0.14 38);
+  --chart-4: oklch(0.35 0.1 38);
+  --chart-5: oklch(0.25 0.06 38);
+  /* Saffron used as TEXT. #F97316 is 2.39:1 on white, unreadable for copy, so
+     text uses this deeper saffron while fills, icons and borders keep the brand
+     colour. Redefined back to bright inside dark chrome below, where the
+     original already passes. */
+  --si-orange-ink: #C2410C;
+
+}
+
+/* ─── Focus visibility ───────────────────────────────────────────────────────
+   There were no focus styles at all, so keyboard users had no way to tell where
+   they were. :focus-visible (rather than :focus) means mouse users never see a
+   ring, which is why the outline could be removed in the first place.
+
+   Two colours: saffron on light surfaces, and a light ring on the dark navbar
+   and footer chrome, which stays dark in both themes.
+─────────────────────────────────────────────────────────────────────────── */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--si-focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+:root {
+  --si-focus: #B4530A;
+}
+.dark {
+  --si-focus: #FDBA74;
+  --si-orange-ink: #F0A265;
+
+}
+/* Chrome that is dark regardless of theme needs a light ring to be visible. */
+nav[data-mainav] :where(a, button, input, [tabindex]):focus-visible,
+footer :where(a, button, input, [tabindex]):focus-visible,
+.section-dark :where(a, button, input, [tabindex]):focus-visible,
+.section-hero :where(a, button, input, [tabindex]):focus-visible {
+  outline-color: #FFFFFF;
+}
+/* Never leave a control with no indicator because a rule removed the outline. */
+:where(a, button, input, select, textarea):focus-visible {
+  outline-style: solid;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────────
+   Honours the OS "reduce motion" setting. The .reveal override matters most:
+   those elements start at opacity 0 and are only revealed by a transition, so
+   stripping transitions without this would leave the page permanently blank.
+─────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animate-pulse-dot,
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+/* ─── Page transition ────────────────────────────────────────────────────────
+   Layout keys this element on the route, so React remounts it on navigation and
+   the animation replays. Enter-only: nothing waits on an outgoing page.
+─────────────────────────────────────────────────────────────────────────── */
+.page-enter {
+  animation: pageIn 300ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ─── Mega menu ──────────────────────────────────────────────────────────── */
+.mega-menu-in {
+  animation: megaMenuIn 180ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+.mega-menu-out {
+  animation: megaMenuOut 180ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+@keyframes megaMenuIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes megaMenuOut {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ─── Skeleton loading ───────────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--si-surface-alt) 25%,
+    var(--si-surface-subtle) 37%,
+    var(--si-surface-alt) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--si-surface) 25%,
+    var(--si-surface-alt) 37%,
+    var(--si-surface) 63%
+  );
+  background-size: 400% 100%;
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none !important; }
+}
+
+/* ─── Dark theme ─────────────────────────────────────────────────────────────
+   Every colour in the app resolves through the tokens above, so the dark theme
+   is a redefinition rather than a second set of styles.
+
+   Two deliberate choices:
+   • Saffron stays saffron. It is the brand, and #F97316 clears 4.5:1 on these
+     surfaces, so it is not lightened.
+   • Tints invert into deep, desaturated versions of themselves rather than
+     becoming grey, so status colours keep meaning their colour.
+─────────────────────────────────────────────────────────────────────────── */
+.dark {
+  /* Brand — accents brighten just enough to hold contrast on dark surfaces */
+  --si-orange: #F97316;
+  --si-orange-dark: #FB8B3C;
+  --si-orange-light: #5A2E0C;
+  --si-orange-tint: #2A1B0D;
+  --si-orange-deep: #FDBA74;
+  /* White on #C2410C still clears 5.18:1, so solid CTAs keep the same treatment
+     in dark; only the hover step lightens to stay distinguishable. */
+  --si-cta: #C2410C;
+  --si-cta-hover: #D2600A;
+  --si-on-accent: #0F1115;
+  --si-social-x: #FFFFFF;
+  --si-gold: #E9BE4A;
+
+  /* Surfaces — a shallow elevation ramp, darkest page to lightest card */
+  --si-card: #16181D;
+  --si-surface: #1B1E24;
+  --si-surface-alt: #22262E;
+  --si-surface-subtle: #1B1E24;
+  --si-cream: #14161A;
+  --si-warm: #1B1E24;
+
+  /* Text — inverted ramp */
+  --si-text: #F2F2F3;
+  --si-text-black: #FFFFFF;
+  --si-text-strong: #D7DAE0;
+  --si-text-mid: #C3C7CF;
+  --si-text-muted: #9BA1AC;
+  --si-text-light: #8A919E;
+
+  /* Borders */
+  --si-border: #2C313A;
+  --si-border-strong: #3A4049;
+
+  /* Status — foregrounds brighten, tints go deep */
+  --si-success: #34D07A;
+  --si-success-deep: #86EFAC;
+  --si-success-light: #4ADE80;
+  --si-success-tint: #0F2318;
+  --si-emerald: #34D399;
+  --si-danger: #F87171;
+  --si-danger-deep: #FCA5A5;
+  --si-danger-tint: #2A1416;
+  --si-rose: #FB7185;
+  --si-rose-tint: #2A1218;
+  --si-info: #60A5FA;
+  --si-info-tint: #101C2E;
+  --si-violet: #A78BFA;
+  --si-violet-deep: #C084FC;
+  --si-violet-tint: #1B1430;
+  --si-fuchsia-tint: #241030;
+  --si-amber: #FBBF24;
+  --si-amber-deep: #FCD34D;
+  --si-amber-tint: #241A08;
+
+  /* Tailwind/shadcn tokens */
+  --background: oklch(0.16 0.008 260);
+  --foreground: oklch(0.96 0.003 260);
+  --card: oklch(0.19 0.008 260);
+  --card-foreground: oklch(0.96 0.003 260);
+  --popover: oklch(0.19 0.008 260);
+  --popover-foreground: oklch(0.96 0.003 260);
+  --primary: oklch(0.7 0.19 42);
+  --primary-foreground: oklch(0.16 0.008 260);
+  --secondary: oklch(0.25 0.008 260);
+  --secondary-foreground: oklch(0.96 0.003 260);
+  --muted: oklch(0.25 0.008 260);
+  --muted-foreground: oklch(0.71 0.01 260);
+  --accent: oklch(0.25 0.008 260);
+  --accent-foreground: oklch(0.96 0.003 260);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.16 0.008 260);
+  --border: oklch(0.3 0.008 260);
+  --input: oklch(0.3 0.008 260);
+  --ring: oklch(0.7 0.19 42);
+  --sidebar: oklch(0.19 0.008 260);
+  --sidebar-foreground: oklch(0.96 0.003 260);
+  --sidebar-primary: oklch(0.7 0.19 42);
+  --sidebar-primary-foreground: oklch(0.16 0.008 260);
+  --sidebar-accent: oklch(0.25 0.008 260);
+  --sidebar-accent-foreground: oklch(0.96 0.003 260);
+  --sidebar-border: oklch(0.3 0.008 260);
+  --sidebar-ring: oklch(0.7 0.19 42);
+}
+
+/* Card surfaces need a visible edge on dark, where the light theme relied on
+   shadow alone to separate them from the page. */
+.dark .card-white,
+.dark .nav-dropdown,
+.dark .timeline-item {
+  border: 1px solid var(--si-border);
+}
+
+/* The grain overlays are tuned for light sections; soften them on dark. */
+.dark .texture-cream::before,
+.dark .texture-stone::before {
+  opacity: 0.03;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .flex { min-height: 0; min-width: 0; }
+  @media (min-width: 640px) {
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 2rem; padding-right: 2rem; max-width: 1200px; }
+  }
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+.font-display {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+}
+.font-body {
+  font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
+}
+.font-devanagari {
+  font-family: 'Noto Sans Devanagari', 'Noto Serif Devanagari', serif;
+}
+
+/* ─── Section Backgrounds ────────────────────────────────────────────────── */
+.section-hero {
+  background: var(--si-hero-dark);
+}
+.section-white {
+  background: var(--si-card);
+}
+.section-cream {
+  background: var(--si-cream);
+}
+.section-warm {
+  background: var(--si-warm);
+}
+.section-dark {
+  background: var(--si-hero-dark);
+}
+
+/* ─── Texture Utilities ──────────────────────────────────────────────────────
+   Stone/haldi grain overlays for depth and warmth.
+   Usage: add class "texture-dark" to dark sections, "texture-cream" to light ones.
+   The ::before pseudo-element injects the SVG noise — no extra DOM nodes needed.
+─────────────────────────────────────────────────────────────────────────── */
+
+/* Dark hero sections — subtle charcoal grain + saffron ember glow */
+.texture-dark {
+  position: relative;
+  isolation: isolate;
+}
+.texture-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+}
+/* Radial saffron ember glow at center-bottom */
+.texture-dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 80% 50% at 50% 110%, rgba(249,115,22,0.07) 0%, transparent 70%);
+}
+.texture-dark > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Light cream/stone sections — warm haldi grain + sandstone vignette */
+.texture-cream {
+  position: relative;
+  isolation: isolate;
+}
+.texture-cream::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0.4 0 0 0.1 0.8 0.5 0 0 0.05 0.3 0.2 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+}
+/* Warm sandstone edge vignette */
+.texture-cream::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 60% at 0% 50%, rgba(212,160,23,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 120% 60% at 100% 50%, rgba(249,115,22,0.03) 0%, transparent 60%);
+}
+.texture-cream > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Stone mid-tone — for charcoal/slate sections */
+.texture-stone {
+  position: relative;
+  isolation: isolate;
+}
+.texture-stone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.65 0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.2'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 250px 250px;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
+}
+.texture-stone > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  background: var(--si-cta);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background 160ms ease, transform 120ms ease, box-shadow 160ms ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-orange:hover {
+  background: var(--si-cta-hover);
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+  transform: translateY(-1px);
+}
+.btn-orange:active { transform: scale(0.97); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  background: transparent;
+  color: var(--si-text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1.5px solid var(--si-border);
+  cursor: pointer;
+  transition: all 160ms ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-outline:hover {
+  border-color: var(--si-orange);
+  color: var(--si-orange-ink);
+  transform: translateY(-1px);
+}
+.btn-outline:active { transform: scale(0.97); }
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  background: transparent;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 160ms ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-outline-white:hover {
+  border-color: white;
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+}
+.btn-outline-white:active { transform: scale(0.97); }
+
+.btn-marketplace {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  color: var(--si-text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1.5px solid var(--si-text);
+  cursor: pointer;
+  transition: all 160ms ease;
+  text-decoration: none;
+}
+.btn-marketplace:hover {
+  background: var(--si-text);
+  color: var(--si-card);
+}
+
+/* ─── Cards ──────────────────────────────────────────────────────────────── */
+.card-white {
+  background: var(--si-card);
+  border-radius: 1rem;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04);
+  transition: box-shadow 220ms ease, transform 220ms cubic-bezier(0.23,1,0.32,1);
+}
+.card-white:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1), 0 8px 40px rgba(0,0,0,0.06);
+  transform: translateY(-3px);
+}
+.card-cream {
+  background: var(--si-cream);
+  border-radius: 1rem;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.card-dashed {
+  background: var(--si-card);
+  border-radius: 0.75rem;
+  border: 2px dashed var(--si-orange);
+  transition: all 200ms ease;
+}
+.card-dashed:hover {
+  background: var(--si-orange-tint);
+  transform: translateY(-2px);
+}
+
+/* ─── Label chip ─────────────────────────────────────────────────────────── */
+.label-chip {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--si-orange-ink);
+}
+
+/* ─── Scroll Reveal ──────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 600ms cubic-bezier(0.23,1,0.32,1), transform 600ms cubic-bezier(0.23,1,0.32,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 600ms cubic-bezier(0.23,1,0.32,1), transform 600ms cubic-bezier(0.23,1,0.32,1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spinnerRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes successReveal {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes checkDraw {
+  from { stroke-dashoffset: 20; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 40s linear infinite; }
+.animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* ─── Marquee strip ──────────────────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Video Modal ────────────────────────────────────────────────────────── */
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 200ms ease;
+}
+.video-modal-inner {
+  width: min(90vw, 900px);
+  aspect-ratio: 16/9;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+  animation: scaleIn 250ms cubic-bezier(0.23,1,0.32,1);
+}
+
+/* ─── Dropdown ───────────────────────────────────────────────────────────── */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  background: var(--si-card);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 0.5rem;
+  animation: slideDown 180ms cubic-bezier(0.23,1,0.32,1);
+  z-index: 100;
+}
+.nav-dropdown-item {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+.nav-dropdown-item:hover {
+  background: #FFF7ED;
+  color: var(--si-orange-ink);
+}
+
+/* ─── FAQ Accordion ──────────────────────────────────────────────────────── */
+.faq-answer {
+  overflow: hidden;
+  transition: max-height 350ms cubic-bezier(0.23,1,0.32,1), opacity 300ms ease;
+}
+
+/* ─── Play Button ────────────────────────────────────────────────────────── */
+.play-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--si-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 16px rgba(249,115,22,0.15);
+}
+
+/* ─── Timeline ───────────────────────────────────────────────────────────── */
+.timeline-item {
+  background: var(--si-card);
+  border-radius: 0.75rem;
+  border: 1px solid var(--si-border);
+  padding: 1.25rem 1.5rem;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.timeline-item:hover {
+  border-color: var(--si-orange);
+  box-shadow: 0 2px 12px rgba(249,115,22,0.08);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--si-orange); }
+
+/* ─── Smooth scroll ──────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ─── Donor Wall Scroll Animation ─────────────────────────────────────────── */
+@keyframes donorScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Floating Share Button Pulse Animation ──────────────────────────────── */
+@keyframes fabPulse {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  60%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+/* ── Modal animations ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Spiritual Particle Animations ─────────────────────────────────────── */
+@keyframes floatPetal {
+  0%   { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.6; }
+  85%  { opacity: 0.4; }
+  100% { transform: translateY(-110vh) translateX(var(--drift, 30px)) rotate(var(--spin, 180deg)); opacity: 0; }
+}
+@keyframes floatRudraksha {
+  0%   { transform: translateY(0px) rotate(0deg) scale(0.8); opacity: 0; }
+  8%   { opacity: 0.5; }
+  90%  { opacity: 0.25; }
+  100% { transform: translateY(-100vh) rotate(var(--spin, 360deg)) scale(1.1); opacity: 0; }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.28; transform: scale(1.08); }
+}
+.particle-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.petal {
+  position: absolute;
+  bottom: -20px;
+  animation: floatPetal linear infinite;
+  will-change: transform, opacity;
+}
+.rudraksha {
+  position: absolute;
+  bottom: -20px;
+  animation: floatRudraksha linear infinite;
+  will-change: transform, opacity;
+}
+
+/* ─── Meta Gurukul aqua glow animation ──────────────────────────────────── */
+@keyframes aquaGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(0,212,212,0.4), 0 0 8px rgba(0,212,212,0.2); }
+  50%       { box-shadow: 0 0 8px rgba(0,212,212,0.7), 0 0 16px rgba(0,212,212,0.35); }
+}
+@keyframes saffronGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(249,115,22,0.5), 0 0 12px rgba(249,115,22,0.25), inset 0 0 0 1.5px rgba(249,115,22,0.6); }
+  50%       { box-shadow: 0 0 12px rgba(249,115,22,0.8), 0 0 24px rgba(249,115,22,0.4), inset 0 0 0 1.5px rgba(249,115,22,0.9); }
+}
+
+/* ─── Marketplace running border animation ──────────────────────────────── */
+@keyframes runBorder {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.marketplace-btn {
+  position: relative;
+  color: white !important;
+  background: transparent;
+  border: none !important;
+  padding: 8px 18px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 150ms ease, transform 150ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.marketplace-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(90deg, #F97316, #FBBF24, #F97316, #EA580C, #F97316);
+  background-size: 300% 100%;
+  animation: runBorder 2.5s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.marketplace-btn:hover {
+  background: rgba(249,115,22,0.1) !important;
+  transform: translateY(-1px);
+}
+
+/* ─── Hindi / Devanagari typography ─────────────────────────────────────── */
+:lang(hi), .lang-hi {
+  font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+}
+.devanagari {
+  font-family: 'Noto Sans Devanagari', 'Mangal', serif;
+}
+
+@keyframes waPulse {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  50%  { transform: scale(1.35); opacity: 0;   }
+  100% { transform: scale(1);    opacity: 0;   }
+}
+
+/* Saffron text sits on dark chrome in these contexts, where the bright brand
+   colour already clears AA — so the darker ink variant is reverted locally
+   rather than at every call site. */
+nav[data-mainav],
+footer,
+.on-dark,
+.section-dark,
+.section-hero,
+.texture-dark {
+  /* These containers are dark in BOTH themes, so every accent inside them needs
+     its dark-theme value regardless of which theme is active. Setting the whole
+     ramp here — rather than saffron alone — means a green chip or a blue label
+     on a dark card is readable in light mode too. */
+  --si-orange-ink: #F97316;
+  --si-success: #34D07A;
+  --si-success-deep: #86EFAC;
+  --si-info: #60A5FA;
+  --si-amber: #FBBF24;
+  --si-rose: #FB7185;
+  --si-emerald: #34D399;
+  --si-danger: #F87171;
+  --si-violet: #A78BFA;
+  --si-violet-deep: #C084FC;
+  --si-text: #F2F2F3;
+  --si-text-strong: #D7DAE0;
+  --si-text-mid: #C3C7CF;
+  --si-text-muted: #9BA1AC;
+  --si-text-light: #8A919E;
+  --si-on-accent: #0F1115;
+}

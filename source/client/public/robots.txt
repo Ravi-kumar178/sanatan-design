@@ -1,0 +1,19 @@
+# Sanatan International — www.sanataninternational.org
+
+User-agent: *
+Allow: /
+
+# Not useful in search results
+Disallow: /login
+Disallow: /register
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /donate/success
+Disallow: /404
+
+# Generative engines (AI answer engines and their crawlers) are welcome — being
+# cited in AI answers is a discovery channel for a nonprofit, not a threat. They
+# are covered by the wildcard rule above; no per-crawler rules are needed.
+
+Sitemap: https://www.sanataninternational.org/sitemap.xml
